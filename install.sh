@@ -8,7 +8,6 @@ yum clean expire-cache
 yum check-update || true
 
 echo "================= Adding some global settings ==================="
-mv gbl_env.sh /etc/profile.d/
 mkdir -p "$HOME/.ssh/"
 mv config "$HOME/.ssh/"
 cat 90forceyes >> /etc/yum.conf
