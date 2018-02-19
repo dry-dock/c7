@@ -40,10 +40,10 @@ printf "\n"
 echo "aws --version"
 aws --version
 
-echo "================= awsebcli Versions ==================="
-printf "\n"
-echo "eb --version"
-eb --version
+#echo "================= awsebcli Versions ==================="
+#printf "\n"
+#echo "eb --version"
+#eb --version
 
 echo "================= Terraform Versions ==================="
 printf "\n"
@@ -52,8 +52,8 @@ terraform --version
 
 echo "================= Packer Versions ==================="
 printf "\n"
-echo "Packer --version"
-packer --version
+echo "packer.io version"
+packer.io version
 
 echo "================= JQ Versions ==================="
 printf "\n"

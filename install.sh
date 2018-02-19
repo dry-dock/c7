@@ -99,8 +99,8 @@ rm -rf linux-amd64
 echo "================= Adding awscli 1.14.41 ============"
 sudo pip3.5 install -q 'awscli==1.14.41'
 
-echo "================= Adding awsebcli 3.12.3 ============"
-sudo pip3.5 install -q 'awsebcli==3.12.3'
+#echo "================= Adding awsebcli 3.12.3 ============"
+#sudo pip3.5 install -q 'awsebcli==3.12.3'
 
 AZURE_CLI_VERSION=2.0.27
 echo "================ Adding azure-cli $AZURE_CLI_VERSION  =============="
@@ -159,12 +159,10 @@ export PK_FILE=packer_"$PK_VERSION"_linux_amd64.zip
 
 echo "Fetching packer"
 echo "-----------------------------------"
-rm -rf /tmp/packer
-mkdir -p /tmp/packer
-wget -nv https://releases.hashicorp.com/packer/$PK_VERSION/$PK_FILE
-unzip -o $PK_FILE -d /tmp/packer
-sudo chmod +x /tmp/packer/packer
-mv /tmp/packer/packer /usr/bin/packer
+curl -O https://releases.hashicorp.com/packer/1.2.0/packer_1.2.0_linux_amd64.zip
+sudo unzip -d /usr/local packer_1.2.0_linux_amd64.zip
+sudo ln -s /usr/local/packer /usr/local/bin/packer.io
+rm packer_1.2.0_linux_amd64.zip
 
 echo "Added packer successfully"
 echo "-----------------------------------"
