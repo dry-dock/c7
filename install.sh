@@ -48,6 +48,14 @@ echo "================= Installing Java 1.8.0 ==================="
 echo "================= Installing Ruby 2.3.5 ==================="
 . /c7/ruby/install.sh
 
+echo "================= Installing Git ==================="
+sudo yum install git
+
+echo "================= Installing Git LFS ==================="
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash -
+sudo yum install git-lfs
+git lfs install
+
 echo "================= Cleaning package lists ==================="
 yum clean expire-cache
 yum autoremove
