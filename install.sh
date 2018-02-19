@@ -35,7 +35,18 @@ yum -y install -q \
   textinfo \
   rsync \
   psmisc \
-  vim
+  vim \
+  glibc.i686 \
+  libgcc_s.so.1
+
+echo "================= Installing Node 9.x ==================="
+. /c7/node/install.sh
+
+echo "================= Installing Java 1.8.0 ==================="
+. /c7/java/install.sh
+
+echo "================= Installing Ruby 2.3.5 ==================="
+. /c7/ruby/install.sh
 
 echo "================= Cleaning package lists ==================="
 yum clean expire-cache
