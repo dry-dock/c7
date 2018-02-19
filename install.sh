@@ -39,6 +39,14 @@ yum -y install -q \
   glibc.i686 \
   libgcc_s.so.1
 
+echo "================= Installing Python packages ==================="
+sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm
+sudo yum update
+sudo yum install -y python35u python35u-libs python35u-devel python35u-pip
+# Update pip version
+python -m pip install -q -U pip
+pip install -q virtualenv==15.1.0
+
 echo "================= Installing Node 9.x ==================="
 . /c7/node/install.sh
 
@@ -86,6 +94,11 @@ wget https://storage.googleapis.com/kubernetes-helm/helm-"$HELM_VERSION"-linux-a
 tar -zxvf helm-"$HELM_VERSION"-linux-amd64.tar.gz
 mv linux-amd64/helm /usr/local/bin/helm
 rm -rf linux-amd64
+
+echo "================ Adding azure-cli $AZURE_CLI_VERSION  =============="
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
+sudo yum install azure-cli
 
 echo "================= Cleaning package lists ==================="
 yum clean expire-cache
