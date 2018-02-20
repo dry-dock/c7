@@ -12,5 +12,5 @@ sudo update-alternatives --set java /usr/java/jre1.8.0_161/bin/java
 sudo update-alternatives --set javac /usr/java/jdk1.8.0_161/bin/javac
 rm jre-8u161-linux-x64.rpm
 rm jdk-8u161-linux-i586.rpm
-echo 'export JAVA_HOME=/usr/java/jdk1.8.0_161' >> $HOME/.bashrc
-echo 'export PATH=$PATH:/usr/java/jre1.8.0_161/bin' >> $HOME/.bashrc
+echo 'export JAVA_HOME=/usr/java/jdk1.8.0_161' >> /etc/drydock/.env
+echo 'export PATH=$PATH:/usr/java/jre1.8.0_161/bin' >> /etc/drydock/.env
