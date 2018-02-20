@@ -12,6 +12,7 @@ mkdir -p "$HOME/.ssh/"
 mv config "$HOME/.ssh/"
 cat 90forceyes >> /etc/yum.conf
 touch "$HOME/.ssh/known_hosts"
+mkdir -p /etc/drydock
 
 echo "================= Installing basic packages ==================="
 yum -y install -q \
