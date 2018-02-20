@@ -167,6 +167,15 @@ rm packer_1.2.0_linux_amd64.zip
 echo "Added packer successfully"
 echo "-----------------------------------"
 
+echo "================= Intalling Shippable CLIs ================="
+
+git clone https://github.com/Shippable/node.git nodeRepo
+./nodeRepo/shipctl/x86_64/CentOS_7/install.sh
+rm -rf nodeRepo
+
+echo "Installed Shippable CLIs successfully"
+echo "-------------------------------------"
+
 echo "================= Cleaning package lists ==================="
 yum clean expire-cache
 yum autoremove
