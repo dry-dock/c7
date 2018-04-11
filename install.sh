@@ -39,7 +39,7 @@ yum -y install -q \
  psmisc-22.20* \
  vim-8.0.003* \
  glibc.i686-2.17* \
- libgcc_s.so.1-4.8.5* \
+ libgcc_s.so.1-4.8.5* 
 
 
 echo "================= Installing Python packages ==================="
