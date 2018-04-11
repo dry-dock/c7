@@ -16,29 +16,30 @@ mkdir -p /etc/drydock
 
 echo "================= Installing basic packages ==================="
 yum -y install -q \
-  epel-release \
-  sudo \
-  gcc \
-  gcc-c++ \
-  kernel-devel \
-  make \
-  curl \
-  openssl \
-  software-properties-common \
-  wget \
-  nano \
-  unzip \
-  openssh-clients \
-  libxslt1-dev \
-  libxml2-dev \
-  htop \
-  gettext \
-  textinfo \
-  rsync \
-  psmisc \
-  vim \
-  glibc.i686 \
-  libgcc_s.so.1
+  epel-release=7* \
+  sudo=1.8.19p2* \
+  gcc=4.8.5* \
+  gcc-c++=4.8.5* \
+  kernel-devel=3.10.0* \
+  make=3.81* \
+  curl=7.29.0* \
+  openssl=1.0.2k* \
+  software-properties-common=0.96.20.2* \
+  wget=1.14* \
+  nano=2.3.1* \
+  unzip=6.0* \
+  zip=3.0* \
+  openssh-clients=7.4p1* \
+  libxslt1-dev=1.1.28* \
+  libxml2-dev=2.9.1* \
+  htop=2.0.2* \
+  gettext=0.19.8.1* \
+  textinfo=5.1* \
+  rsync=3.1.2* \
+  psmisc=22.20* \
+  vim=8.0.003* \
+  glibc.i686=2.17* \
+  libgcc_s.so.1=4.8.5* \
 
 echo "================= Installing Python packages ==================="
 sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm
@@ -46,7 +47,7 @@ sudo yum update
 sudo yum install -y python36u python36u-libs python36u-devel python36u-pip
 sudo pip3.6 install virtualenv==15.2.0
 
-echo "================= Adding JQ 1.3.1 ==================="
+echo "================= Adding JQ 1.5 ==================="
 sudo yum install jq-1.5
 
 echo "================= Installing Node 9.x ==================="
@@ -63,7 +64,7 @@ sudo yum install git-1.8.3.1
 
 echo "================= Installing Git LFS ==================="
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash -
-sudo yum install git-lfs-2.3.4
+sudo yum install git-lfs-2.4.0
 git lfs install
 
 echo "================= Adding gclould ============"
@@ -77,10 +78,10 @@ repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
        https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOM
-sudo yum install -y google-cloud-sdk-189.0.0-1.el7
+sudo yum install -y google-cloud-sdk-196.0.0-1.el7
 
-echo "================= Adding kubectl 1.8.8 ==================="
-curl -sSLO https://storage.googleapis.com/kubernetes-release/release/v1.8.8/bin/linux/amd64/kubectl
+echo "================= Adding kubectl 1.8.11 ==================="
+curl -sSLO https://storage.googleapis.com/kubernetes-release/release/v1.8.11/bin/linux/amd64/kubectl
 sudo chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 
@@ -90,55 +91,55 @@ curl -LO https://github.com/kubernetes/kops/releases/download/"$KOPS_VERSION"/ko
 sudo chmod +x kops-linux-amd64
 sudo mv kops-linux-amd64 /usr/local/bin/kops
 
-HELM_VERSION=v2.8.1
+HELM_VERSION=v2.8.2
 echo "Installing helm version: $HELM_VERSION"
 wget https://storage.googleapis.com/kubernetes-helm/helm-"$HELM_VERSION"-linux-amd64.tar.gz
 tar -zxvf helm-"$HELM_VERSION"-linux-amd64.tar.gz
 mv linux-amd64/helm /usr/local/bin/helm
 rm -rf linux-amd64
 
-echo "================= Adding awscli 1.14.41 ============"
-sudo pip3.5 install -q 'awscli==1.14.41'
+echo "================= Adding awscli 1.15.3 ============"
+sudo pip3.6 install -q 'awscli==1.15.3'
 
-#echo "================= Adding awsebcli 3.12.3 ============"
-#sudo pip3.5 install -q 'awsebcli==3.12.3'
+#echo "================= Adding awsebcli 3.12.4 ============"
+#sudo pip3.6 install -q 'awsebcli==3.12.4'
 
-AZURE_CLI_VERSION=2.0.27
+AZURE_CLI_VERSION=2.0.30
 echo "================ Adding azure-cli $AZURE_CLI_VERSION  =============="
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
 sudo yum install azure-cli-$AZURE_CLI_VERSION
 
-echo "================= Adding doctl 1.7.0 ============"
-curl -OL https://github.com/digitalocean/doctl/releases/download/v1.7.0/doctl-1.7.0-linux-amd64.tar.gz
-tar xf doctl-1.7.0-linux-amd64.tar.gz
+echo "================= Adding doctl 1.8.0 ============"
+curl -OL https://github.com/digitalocean/doctl/releases/download/v1.8.0/doctl-1.8.0-linux-amd64.tar.gz
+tar xf doctl-1.8.0-linux-amd64.tar.gz
 sudo mv doctl /usr/local/bin
-rm doctl-1.7.0-linux-amd64.tar.gz
+rm doctl-1.8.0-linux-amd64.tar.gz
 
-echo "================= Adding jfrog-cli 1.7.0 ==================="
-wget -nv https://api.bintray.com/content/jfrog/jfrog-cli-go/1.7.0/jfrog-cli-linux-amd64/jfrog?bt_package=jfrog-cli-linux-amd64 -O jfrog
+echo "================= Adding jfrog-cli 1.14.0 ==================="
+wget -nv https://api.bintray.com/content/jfrog/jfrog-cli-go/1.14.0/jfrog-cli-linux-amd64/jfrog?bt_package=jfrog-cli-linux-amd64 -O jfrog
 sudo chmod +x jfrog
 sudo mv jfrog /usr/bin/jfrog
 
-echo "================ Adding ansible 2.3.0.0 ===================="
-sudo pip3.5 install -q 'ansible==2.3.0.0'
+echo "================ Adding ansible 2.4.4.0 ===================="
+sudo pip3.6 install -q 'ansible==2.4.4.0'
 
-echo "================ Adding boto 2.46.1 ======================="
-sudo pip3.5 install -q 'boto==2.46.1'
+echo "================ Adding boto 2.48.0 ======================="
+sudo pip3.6 install -q 'boto==2.48.0'
 
 echo "============  Adding boto3 ==============="
-sudo pip3.5 install -q 'boto3==1.5.15'
+sudo pip3.6 install -q 'boto3==1.7.2'
 
-echo "================ Adding apache-libcloud 2.0.0 ======================="
-sudo pip3.5 install -q 'apache-libcloud==2.0.0'
+echo "================ Adding apache-libcloud 2.3.0 ======================="
+sudo pip3.6 install -q 'apache-libcloud==2.3.0'
 
-echo "================ Adding azure 2.0.0 ======================="
-sudo pip3.5 install -q 'azure==2.0.0'
+echo "================ Adding azure 3.0 ======================="
+sudo pip3.6 install -q 'azure==3.0'
 
 echo "================ Adding dopy 0.3.7a ======================="
-sudo pip3.5 install -q 'dopy==0.3.7a'
+sudo pip3.6 install -q 'dopy==0.3.7a'
 
-export TF_VERSION=0.11.3
+export TF_VERSION=0.11.5
 echo "================ Adding terraform-$TF_VERSION===================="
 export TF_FILE=terraform_"$TF_VERSION"_linux_amd64.zip
 
@@ -154,16 +155,16 @@ mv /tmp/terraform/terraform /usr/bin/terraform
 echo "Added terraform successfully"
 echo "-----------------------------------"
 
-export PK_VERSION=1.2.0
+export PK_VERSION=1.2.2
 echo "================ Adding packer $PK_VERSION ===================="
 export PK_FILE=packer_"$PK_VERSION"_linux_amd64.zip
 
 echo "Fetching packer"
 echo "-----------------------------------"
-curl -O https://releases.hashicorp.com/packer/1.2.0/packer_1.2.0_linux_amd64.zip
-sudo unzip -d /usr/local packer_1.2.0_linux_amd64.zip
+curl -O https://releases.hashicorp.com/packer/1.2.2/packer_1.2.2_linux_amd64.zip
+sudo unzip -d /usr/local packer_1.2.2_linux_amd64.zip
 sudo ln -s /usr/local/packer /usr/local/bin/packer.io
-rm packer_1.2.0_linux_amd64.zip
+rm packer_1.2.2_linux_amd64.zip
 
 echo "Added packer successfully"
 echo "-----------------------------------"
