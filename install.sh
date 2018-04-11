@@ -15,7 +15,7 @@ touch "$HOME/.ssh/known_hosts"
 mkdir -p /etc/drydock
 
 echo "================= Installing basic packages ==================="
-yum -y install  \
+yum -y install -q \
   epel-release \
   sudo \
   gcc \
