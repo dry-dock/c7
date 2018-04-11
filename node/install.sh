@@ -11,6 +11,6 @@ echo "================= Installing nodejs 9.11.1 ==================="
 curl --silent --location https://rpm.nodesource.com/setup_9.x | sudo bash -
 sudo yum install nodejs
 
-echo "================= Installing yarn 1.5.1n ==================="
+echo "================= Installing yarn 1.5.1 ==================="
 sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 sudo yum install yarn
