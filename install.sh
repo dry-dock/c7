@@ -39,8 +39,8 @@ yum -y install -q \
  psmisc-22.20* \
  vim-8.0.003* \
  glibc.i686-2.17* \
- libgcc_s.so.1-4.8.5* \
- which-2.20-78 \
+ libgcc_s.so.1-4.8.5* 
+
 
 echo "================= Installing Python packages ==================="
 sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm
