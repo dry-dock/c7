@@ -16,30 +16,30 @@ mkdir -p /etc/drydock
 
 echo "================= Installing basic packages ==================="
 yum -y install -q \
-  epel-release=7* \
-  sudo=1.8.19p2* \
-  gcc=4.8.5* \
-  gcc-c++=4.8.5* \
-  kernel-devel=3.10.0* \
-  make=3.81* \
-  curl=7.29.0* \
-  openssl=1.0.2k* \
-  software-properties-common=0.96.20.2* \
-  wget=1.14* \
-  nano=2.3.1* \
-  unzip=6.0* \
-  zip=3.0* \
-  openssh-clients=7.4p1* \
-  libxslt1-dev=1.1.28* \
-  libxml2-dev=2.9.1* \
-  htop=2.0.2* \
-  gettext=0.19.8.1* \
-  textinfo=5.1* \
-  rsync=3.1.2* \
-  psmisc=22.20* \
-  vim=8.0.003* \
-  glibc.i686=2.17* \
-  libgcc_s.so.1=4.8.5* \
+ epel-release-7* \
+ sudo-1.8.19p2* \
+ gcc-4.8.5* \
+ gcc-c++-4.8.5* \
+ kernel-devel-3.10.0* \
+ make-3.81* \
+ curl-7.29.0* \
+ openssl-1.0.2k* \
+ software-properties-common-0.96.20.2* \
+ wget-1.14* \
+ nano-2.3.1* \
+ unzip-6.0* \
+ zip-3.0* \
+ openssh-clients-7.4p1* \
+ libxslt1-dev-1.1.28* \
+ libxml2-dev-2.9.1* \
+ htop-2.0.2* \
+ gettext-0.19.8.1* \
+ textinfo-5.1* \
+ rsync-3.1.2* \
+ psmisc-22.20* \
+ vim-8.0.003* \
+ glibc.i686-2.17* \
+ libgcc_s.so.1-4.8.5* \
 
 echo "================= Installing Python packages ==================="
 sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm
@@ -56,7 +56,7 @@ echo "================= Installing Node 9.x ==================="
 echo "================= Installing Java 1.8.0 ==================="
 . /c7/java/install.sh
 
-echo "================= Installing Ruby 2.3.5 ==================="
+echo "================= Installing Ruby 2.5.1 ==================="
 . /c7/ruby/install.sh
 
 echo "================= Installing Git ==================="
