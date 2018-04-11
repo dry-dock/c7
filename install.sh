@@ -56,7 +56,7 @@ echo "================= Installing Node 9.x ==================="
 echo "================= Installing Java 1.8.0 ==================="
 . /c7/java/install.sh
 
-echo "================= Installing Ruby 2.5.1 ==================="
+echo "================= Installing Ruby 2.3.5 ==================="
 . /c7/ruby/install.sh
 
 echo "================= Installing Git ==================="
