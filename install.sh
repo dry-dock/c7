@@ -44,7 +44,7 @@ echo "================= Installing Python packages ==================="
 sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm
 sudo yum update
 sudo yum install -y python36u python36u-libs python36u-devel python36u-pip
-sudo pip3.5 install -q virtualenv==15.2.0
+sudo pip9.0.3 install -q virtualenv==15.2.0
 
 echo "================= Adding JQ 1.3.1 ==================="
 sudo yum install jq-1.5
