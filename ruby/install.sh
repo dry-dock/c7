@@ -16,10 +16,10 @@ source /usr/local/rvm/scripts/rvm
 rvm requirements
 
 echo "================= Installing default ruby ==================="
-rvm install 2.3.5
+rvm install 2.5.1
 
 # tell rvm to use this version as default
-rvm use 2.3.5 --default
+rvm use 2.5.1 --default
 
 #update gems to current
 rvm rubygems current
