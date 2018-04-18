@@ -38,7 +38,7 @@ yum -y install -q \
  
  
 echo "================= Installing Htop packages ==================="
-sudo yum install htop-2.1.0
+sudo yum install htop-2.1*
 
 
 echo "================= Installing Python packages ==================="
