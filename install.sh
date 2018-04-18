@@ -21,25 +21,24 @@ yum -y install -q \
  gcc-4.8.5* \
  gcc-c++-4.8.5* \
  kernel-devel-3.10.0* \
- make-3.81* \
+ make-3.82* \
  curl-7.29.0* \
  openssl-1.0.2k* \
- software-properties-common-0.96.20.2* \
  wget-1.14* \
  nano-2.3.1* \
  unzip-6.0* \
  zip-3.0* \
  openssh-clients-7.4p1* \
- libxslt1-dev-1.1.28* \
- libxml2-dev-2.9.1* \
- htop-2.0.2* \
  gettext-0.19.8.1* \
- textinfo-5.1* \
- rsync-3.1.2* \
+ rsync-3.0.9* \
  psmisc-22.20* \
- vim-8.0.003* \
- glibc.i686-2.17* \
- libgcc_s.so.1-4.8.5* 
+ vim-enhanced-7.4* \
+ glibc-2.17*.i686 \
+ libgcc-4.8.5* 
+ 
+ 
+echo "================= Installing Htop packages ==================="
+sudo yum install htop-2.1.0
 
 
 echo "================= Installing Python packages ==================="
@@ -48,8 +47,8 @@ sudo yum update
 sudo yum install -y python36u python36u-libs python36u-devel python36u-pip
 sudo pip3.6 install virtualenv==15.2.0
 
-echo "================= Adding JQ 1.5 ==================="
-sudo yum install jq-1.5
+echo "================= Adding JQ 1.5* ==================="
+sudo yum install jq-1.5*
 
 echo "================= Installing Node 9.x ==================="
 . /c7/node/install.sh
@@ -65,7 +64,7 @@ sudo yum install git-1.8.3.1
 
 echo "================= Installing Git LFS ==================="
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash -
-sudo yum install git-lfs-2.4.0
+sudo yum install git-lfs-2.4*
 git lfs install
 
 echo "================= Adding gclould ============"
@@ -79,7 +78,7 @@ repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
        https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOM
-sudo yum install -y google-cloud-sdk-196.0.0-1.el7
+sudo yum install -y google-cloud-sdk-196.0*
 
 echo "================= Adding kubectl 1.8.11 ==================="
 curl -sSLO https://storage.googleapis.com/kubernetes-release/release/v1.8.11/bin/linux/amd64/kubectl
@@ -105,7 +104,7 @@ sudo pip3.6 install -q 'awscli==1.15.3'
 #echo "================= Adding awsebcli 3.12.4 ============"
 #sudo pip3.6 install -q 'awsebcli==3.12.4'
 
-AZURE_CLI_VERSION=2.0.30
+AZURE_CLI_VERSION=2.0*
 echo "================ Adding azure-cli $AZURE_CLI_VERSION  =============="
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
