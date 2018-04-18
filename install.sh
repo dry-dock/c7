@@ -18,18 +18,18 @@ echo "================= Installing basic packages ==================="
 yum -y install -q \
  epel-release-7* \
  sudo-1.8.19p2* \
- gcc-4.8.5* \
- gcc-c++-4.8.5* \
+ gcc-4.8* \
+ gcc-c++-4.8* \
  kernel-devel-3.10.0* \
  make-3.82* \
  curl-7.29.0* \
  openssl-1.0.2k* \
  wget-1.14* \
- nano-2.3.1* \
+ nano-2.3* \
  unzip-6.0* \
  zip-3.0* \
  openssh-clients-7.4p1* \
- gettext-0.19.8.1* \
+ gettext-0.19.8* \
  rsync-3.0.9* \
  psmisc-22.20* \
  vim-enhanced-7.4* \
