@@ -14,13 +14,11 @@ cat 90forceyes >> /etc/yum.conf
 touch "$HOME/.ssh/known_hosts"
 mkdir -p /etc/drydock
 
-echo "================= Installing basic packages ==================="
-
-echo "================= Installing epel-release packages ==================="
-sudo yum install epel-release-7*
+echo "================= Installing basic packages ===================="
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 
 
 yum -y install -q \
+ epel-release-7*
  sudo-1.8.19p2* \
  gcc-4.8* \
  gcc-c++-4.8* \
@@ -42,6 +40,7 @@ yum -y install -q \
  
  
 echo "================= Installing Htop packages ==================="
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7  
 sudo yum install htop-2.1*
 
 
