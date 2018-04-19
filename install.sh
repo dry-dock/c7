@@ -18,7 +18,7 @@ echo "================= Installing basic packages ===================="
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 
 
 yum -y install -q \
- epel-release-7*
+ epel-release-7* \
  sudo-1.8.19p2* \
  gcc-4.8* \
  gcc-c++-4.8* \
