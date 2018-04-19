@@ -49,8 +49,8 @@ sudo yum install htop-2.1*
 echo "================= Installing Python packages ==================="
 sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm
 sudo yum update
-rpm --import /etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
 #adding key required to install python 
+rpm --import /etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
 sudo yum install -y python36u python36u-libs python36u-devel python36u-pip
 sudo pip3.6 install virtualenv==15.2.0
 
