@@ -82,6 +82,8 @@ repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
        https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOM
+rpm --import  https://packages.cloud.google.com/yum/doc/yum-key.gpg
+rpm --import  https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 sudo yum install -y google-cloud-sdk-196.0*
 
 echo "================= Adding kubectl 1.8.11 ==================="
