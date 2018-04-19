@@ -14,4 +14,5 @@ sudo yum install nodejs
 
 echo "================= Installing yarn 1.5* ==================="
 sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+rpm --import https://dl.yarnpkg.com/rpm/pubkey.gpg
 sudo yum install yarn
