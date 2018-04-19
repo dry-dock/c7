@@ -15,7 +15,7 @@ touch "$HOME/.ssh/known_hosts"
 mkdir -p /etc/drydock
 
 echo "================= Installing basic packages ===================="
-#adding key requer to install epel-release-7 
+#adding key required to install epel-release-7 
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 
 
 yum -y install -q \
@@ -41,7 +41,7 @@ yum -y install -q \
  
  
 echo "================= Installing Htop packages ==================="
-#adding key requer to install htop
+#adding key required to install htop
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7  
 sudo yum install htop-2.1*
 
@@ -50,7 +50,7 @@ echo "================= Installing Python packages ==================="
 sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm
 sudo yum update
 rpm --import /etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
-#adding key requer to install python 
+#adding key required to install python 
 sudo yum install -y python36u python36u-libs python36u-devel python36u-pip
 sudo pip3.6 install virtualenv==15.2.0
 
@@ -85,7 +85,7 @@ repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
        https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOM
-#adding key requer to install gclould
+#adding key required to install gclould
 rpm --import  https://packages.cloud.google.com/yum/doc/yum-key.gpg
 rpm --import  https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 sudo yum install -y google-cloud-sdk-196.0*
