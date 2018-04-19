@@ -15,8 +15,12 @@ touch "$HOME/.ssh/known_hosts"
 mkdir -p /etc/drydock
 
 echo "================= Installing basic packages ==================="
+
+echo "================= Installing epel-release packages ==================="
+sudo yum install epel-release-7*
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 
+
 yum -y install -q \
- epel-release-7* \
  sudo-1.8.19p2* \
  gcc-4.8* \
  gcc-c++-4.8* \
@@ -44,6 +48,7 @@ sudo yum install htop-2.1*
 echo "================= Installing Python packages ==================="
 sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm
 sudo yum update
+rpm --import /etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
 sudo yum install -y python36u python36u-libs python36u-devel python36u-pip
 sudo pip3.6 install virtualenv==15.2.0
 
