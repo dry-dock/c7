@@ -8,8 +8,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 echo "================= Installing nodejs 9.11* ==================="
-yum clean all
 curl --silent --location https://rpm.nodesource.com/setup_9.x | sudo bash -
+yum clean all
 #adding key required to install nodejs
 rpm --import /etc/pki/rpm-gpg/NODESOURCE-GPG-SIGNING-KEY-EL
 sudo yum install nodejs
