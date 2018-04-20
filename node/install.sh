@@ -9,9 +9,9 @@ export NVM_DIR="$HOME/.nvm"
 
 echo "================= Installing nodejs 9.11* ==================="
 curl --silent --location https://rpm.nodesource.com/setup_9.x | sudo bash -
+yum history sync
 #adding key required to install nodejs
 rpm --import /etc/pki/rpm-gpg/NODESOURCE-GPG-SIGNING-KEY-EL
-yum history sync
 sudo yum install nodejs
 
 echo "================= Installing yarn 1.5* ==================="
