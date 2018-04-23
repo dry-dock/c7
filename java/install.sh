@@ -29,4 +29,4 @@ sudo update-alternatives --set javac /usr/java/jdk1.8.0_171-amd64/bin/javac
 rm jre-8u171-linux-x64.rpm
 rm jdk-8u171-linux-x64.rpm
 echo 'export JAVA_HOME=/usr/java/jdk1.8.0_171-amd64' >> /etc/drydock/.env
-echo 'export PATH=$PATH:/usr/java/jre1.8.0_171/bin' >> /etc/drydock/.env
+echo 'export PATH=$PATH:/usr/java/jre1.8.0_171-amd64/bin' >> /etc/drydock/.env
