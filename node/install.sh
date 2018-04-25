@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
-echo "================= Installing NVM ==================="
-curl https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+echo "================= Installing NVM v0.33.9 ==================="
+curl https://raw.githubusercontent.com/creationix/nvm/v0.33.9/install.sh | bash
 
 # Set NVM_DIR so the installations go to the right place
 export NVM_DIR="$HOME/.nvm"
