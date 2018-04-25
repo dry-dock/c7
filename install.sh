@@ -15,8 +15,8 @@ touch "$HOME/.ssh/known_hosts"
 mkdir -p /etc/drydock
 
 echo "================= Installing basic packages ===================="
-#adding key required to install epel-release-7 
-rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 
+#adding key required to install epel-release-7
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
 yum -y install -q \
  epel-release-7* \
@@ -37,19 +37,19 @@ yum -y install -q \
  psmisc-22.20* \
  vim-enhanced-7.4* \
  glibc-2.17*.i686 \
- libgcc-4.8.5* 
- 
- 
+ libgcc-4.8.5*
+
+
 echo "================= Installing Htop packages ==================="
 #adding key required to install htop
-rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7  
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
 sudo yum install htop-2.1*
 
 
 echo "================= Installing Python packages ==================="
 sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm
 sudo yum update
-#adding key required to install python 
+#adding key required to install python
 rpm --import /etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
 sudo yum install -y python36u python36u-libs python36u-devel python36u-pip
 sudo pip3.6 install virtualenv==15.2.0
@@ -74,7 +74,7 @@ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.s
 sudo yum install git-lfs-2.4*
 git lfs install
 
-echo "================= Adding gclould ============"
+echo "================= Adding gcloud ============"
 sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo << EOM
 [google-cloud-sdk]
 name=Google Cloud SDK
@@ -85,7 +85,7 @@ repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
        https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOM
-#adding key required to install gclould
+#adding key required to install gcloud
 rpm --import  https://packages.cloud.google.com/yum/doc/yum-key.gpg
 rpm --import  https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 sudo yum install -y google-cloud-sdk-196.0*
@@ -111,6 +111,7 @@ rm -rf linux-amd64
 echo "================= Adding awscli 1.15.3 ============"
 sudo pip3.6 install -q 'awscli==1.15.3'
 
+#This is an open issue for centos 7: https://github.com/aws/aws-cli/issues/774
 #echo "================= Adding awsebcli 3.12.4 ============"
 #sudo pip3.6 install -q 'awsebcli==3.12.4'
 
@@ -148,6 +149,10 @@ sudo pip3.6 install -q 'azure==3.0'
 
 echo "================ Adding dopy 0.3.7a ======================="
 sudo pip3.6 install -q 'dopy==0.3.7a'
+
+echo "================= Adding openstack client 3.15.0 ============"
+sudo pip3.6 install 'python-openstackclient==3.15.0'
+sudo pip3.6 install 'shade==1.27.1'
 
 export TF_VERSION=0.11.5
 echo "================ Adding terraform-$TF_VERSION===================="
