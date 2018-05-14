@@ -20,24 +20,24 @@ rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
 yum -y install -q \
  epel-release-7* \
- sudo-1.8.19p2* \
+ sudo-1.8* \
  gcc-4.8* \
  gcc-c++-4.8* \
- kernel-devel-3.10.0* \
+ kernel-devel-3.10* \
  make-3.82* \
- curl-7.29.0* \
- openssl-1.0.2k* \
+ curl-7.29* \
+ openssl-1.0* \
  wget-1.14* \
  nano-2.3* \
  unzip-6.0* \
  zip-3.0* \
  openssh-clients-7.4p1* \
- gettext-0.19.8* \
- rsync-3.0.9* \
+ gettext-0.19* \
+ rsync-3.1* \
  psmisc-22.20* \
  vim-enhanced-7.4* \
  glibc-2.17*.i686 \
- libgcc-4.8.5*
+ libgcc-4.8*
 
 
 echo "================= Installing Htop packages ==================="
@@ -88,28 +88,28 @@ EOM
 #adding key required to install gcloud
 rpm --import  https://packages.cloud.google.com/yum/doc/yum-key.gpg
 rpm --import  https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-sudo yum install -y google-cloud-sdk-196.0*
+sudo yum install -y google-cloud-sdk-200.0*
 
-echo "================= Adding kubectl 1.8.11 ==================="
-curl -sSLO https://storage.googleapis.com/kubernetes-release/release/v1.8.11/bin/linux/amd64/kubectl
+echo "================= Adding kubectl 1.10.0 ==================="
+curl -sSLO https://storage.googleapis.com/kubernetes-release/release/v1.10.0/bin/linux/amd64/kubectl
 sudo chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 
-KOPS_VERSION=1.8.1
+KOPS_VERSION=1.9.0
 echo "Installing KOPS version: $KOPS_VERSION"
 curl -LO https://github.com/kubernetes/kops/releases/download/"$KOPS_VERSION"/kops-linux-amd64
 sudo chmod +x kops-linux-amd64
 sudo mv kops-linux-amd64 /usr/local/bin/kops
 
-HELM_VERSION=v2.8.2
+HELM_VERSION=v2.9.0
 echo "Installing helm version: $HELM_VERSION"
 wget https://storage.googleapis.com/kubernetes-helm/helm-"$HELM_VERSION"-linux-amd64.tar.gz
 tar -zxvf helm-"$HELM_VERSION"-linux-amd64.tar.gz
 mv linux-amd64/helm /usr/local/bin/helm
 rm -rf linux-amd64
 
-echo "================= Adding awscli 1.15.3 ============"
-sudo pip3.6 install -q 'awscli==1.15.3'
+echo "================= Adding awscli 1.15.14 ============"
+sudo pip3.6 install -q 'awscli==1.15.14'
 
 #This is an open issue for centos 7: https://github.com/aws/aws-cli/issues/774
 #echo "================= Adding awsebcli 3.12.4 ============"
@@ -127,19 +127,19 @@ tar xf doctl-1.8.0-linux-amd64.tar.gz
 sudo mv doctl /usr/local/bin
 rm doctl-1.8.0-linux-amd64.tar.gz
 
-echo "================= Adding jfrog-cli 1.14.0 ==================="
-wget -nv https://api.bintray.com/content/jfrog/jfrog-cli-go/1.14.0/jfrog-cli-linux-amd64/jfrog?bt_package=jfrog-cli-linux-amd64 -O jfrog
+echo "================= Adding jfrog-cli 1.15.1 ==================="
+wget -nv https://api.bintray.com/content/jfrog/jfrog-cli-go/1.15.1/jfrog-cli-linux-amd64/jfrog?bt_package=jfrog-cli-linux-amd64 -O jfrog
 sudo chmod +x jfrog
 sudo mv jfrog /usr/bin/jfrog
 
-echo "================ Adding ansible 2.4.4.0 ===================="
-sudo pip3.6 install -q 'ansible==2.4.4.0'
+echo "================ Adding ansible 2.5.2 ===================="
+sudo pip3.6 install -q 'ansible==2.5.2'
 
 echo "================ Adding boto 2.48.0 ======================="
 sudo pip3.6 install -q 'boto==2.48.0'
 
 echo "============  Adding boto3 ==============="
-sudo pip3.6 install -q 'boto3==1.7.2'
+sudo pip3.6 install -q 'boto3==1.7.16'
 
 echo "================ Adding apache-libcloud 2.3.0 ======================="
 sudo pip3.6 install -q 'apache-libcloud==2.3.0'
@@ -152,9 +152,9 @@ sudo pip3.6 install -q 'dopy==0.3.7a'
 
 echo "================= Adding openstack client 3.15.0 ============"
 sudo pip3.6 install 'python-openstackclient==3.15.0'
-sudo pip3.6 install 'shade==1.27.1'
+sudo pip3.6 install 'shade==1.28.1'
 
-export TF_VERSION=0.11.5
+export TF_VERSION=0.11.7
 echo "================ Adding terraform-$TF_VERSION===================="
 export TF_FILE=terraform_"$TF_VERSION"_linux_amd64.zip
 
@@ -170,16 +170,16 @@ mv /tmp/terraform/terraform /usr/bin/terraform
 echo "Added terraform successfully"
 echo "-----------------------------------"
 
-export PK_VERSION=1.2.2
+export PK_VERSION=1.2.3
 echo "================ Adding packer $PK_VERSION ===================="
 export PK_FILE=packer_"$PK_VERSION"_linux_amd64.zip
 
 echo "Fetching packer"
 echo "-----------------------------------"
-curl -O https://releases.hashicorp.com/packer/1.2.2/packer_1.2.2_linux_amd64.zip
-sudo unzip -d /usr/local packer_1.2.2_linux_amd64.zip
+curl -O https://releases.hashicorp.com/packer/1.2.3/packer_1.2.3_linux_amd64.zip
+sudo unzip -d /usr/local packer_1.2.3_linux_amd64.zip
 sudo ln -s /usr/local/packer /usr/local/bin/packer.io
-rm packer_1.2.2_linux_amd64.zip
+rm packer_1.2.3_linux_amd64.zip
 
 echo "Added packer successfully"
 echo "-----------------------------------"
