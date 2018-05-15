@@ -52,7 +52,6 @@ sudo yum update
 #adding key required to install python
 rpm --import /etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
 sudo yum install -y python36u python36u-libs python36u-devel python36u-pip
-
 sudo pip3.6 install virtualenv==15.2.0
 
 echo "================= Adding JQ 1.5* ==================="
