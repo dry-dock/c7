@@ -153,7 +153,7 @@ sudo pip3.6 install 'dopy==0.3.7a'
 
 echo "================= Adding openstack client 3.15.0 ============"
 sudo pip3.6 install 'python-openstackclient==3.15.0'
-sudo pip3.6 install 'shade==1.28.1'
+sudo pip3.6 install 'shade==1.28.0'
 
 export TF_VERSION=0.11.7
 echo "================ Adding terraform-$TF_VERSION===================="
