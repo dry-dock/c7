@@ -18,7 +18,7 @@ echo "================= Installing basic packages ===================="
 #adding key required to install epel-release-7
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
-yum -y install -q \
+yum -y install  \
  epel-release-7* \
  sudo-1.8* \
  gcc-4.8* \
@@ -52,6 +52,7 @@ sudo yum update
 #adding key required to install python
 rpm --import /etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
 sudo yum install -y python36u python36u-libs python36u-devel python36u-pip
+
 sudo pip3.6 install virtualenv==15.2.0
 
 echo "================= Adding JQ 1.5* ==================="
@@ -109,7 +110,7 @@ mv linux-amd64/helm /usr/local/bin/helm
 rm -rf linux-amd64
 
 echo "================= Adding awscli 1.15.14 ============"
-sudo pip3.6 install -q 'awscli==1.15.14'
+sudo pip3.6 install  'awscli==1.15.14'
 
 #This is an open issue for centos 7: https://github.com/aws/aws-cli/issues/774
 #echo "================= Adding awsebcli 3.12.4 ============"
@@ -133,22 +134,22 @@ sudo chmod +x jfrog
 sudo mv jfrog /usr/bin/jfrog
 
 echo "================ Adding ansible 2.5.2 ===================="
-sudo pip3.6 install -q 'ansible==2.5.2'
+sudo pip3.6 install 'ansible==2.5.2'
 
 echo "================ Adding boto 2.48.0 ======================="
-sudo pip3.6 install -q 'boto==2.48.0'
+sudo pip3.6 install  'boto==2.48.0'
 
 echo "============  Adding boto3 ==============="
-sudo pip3.6 install -q 'boto3==1.7.16'
+sudo pip3.6 install 'boto3==1.7.16'
 
 echo "================ Adding apache-libcloud 2.3.0 ======================="
-sudo pip3.6 install -q 'apache-libcloud==2.3.0'
+sudo pip3.6 install 'apache-libcloud==2.3.0'
 
-echo "================ Adding azure 3.0 ======================="
-sudo pip3.6 install -q 'azure==3.0'
+#echo "================ Adding azure 3.0 ======================="
+#sudo pip3.6 install 'azure==3.0'
 
 echo "================ Adding dopy 0.3.7a ======================="
-sudo pip3.6 install -q 'dopy==0.3.7a'
+sudo pip3.6 install 'dopy==0.3.7a'
 
 echo "================= Adding openstack client 3.15.0 ============"
 sudo pip3.6 install 'python-openstackclient==3.15.0'
