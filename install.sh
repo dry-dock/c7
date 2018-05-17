@@ -70,13 +70,13 @@ echo "================= Adding JQ 1.5* ==================="
 sudo yum install jq-1.5*
 
 echo "================= Installing Node 9.x ==================="
-#. /c7/node/install.sh
+. /c7/node/install.sh
 
 echo "================= Installing Java 1.8.0 ==================="
-#. /c7/java/install.sh
+. /c7/java/install.sh
 
 echo "================= Installing Ruby 2.5.1 ==================="
-#. /c7/ruby/install.sh
+. /c7/ruby/install.sh
 
 echo "================= Installing Git ==================="
 sudo yum install git-1.8.3.1
@@ -123,9 +123,10 @@ rm -rf linux-amd64
 echo "================= Adding awscli 1.15.14 ============"
 sudo pip install  'awscli==1.15.14'
 
-#This is an open issue for centos 7: https://github.com/aws/aws-cli/issues/774
-echo "================= Adding awsebcli 3.12.4 ============"
-sudo pip install 'awsebcli==3.12.4'
+# This does not work because of dependency issue with awsebcli which requires
+# an older version of requests library: https://forums.aws.amazon.com/thread.jspa?threadID=225679
+#echo "================= Adding awsebcli 3.12.4 ============"
+#sudo pip install 'awsebcli==3.12.4'
 
 AZURE_CLI_VERSION=2.0*
 echo "================ Adding azure-cli $AZURE_CLI_VERSION  =============="
@@ -188,10 +189,10 @@ export PK_FILE=packer_"$PK_VERSION"_linux_amd64.zip
 
 echo "Fetching packer"
 echo "-----------------------------------"
-curl -O https://releases.hashicorp.com/packer/1.2.3/packer_1.2.3_linux_amd64.zip
-sudo unzip -d /usr/local packer_1.2.3_linux_amd64.zip
+curl -O https://releases.hashicorp.com/packer/$PK_VERSION/$PK_FILE
+sudo unzip -d /usr/local $PK_FILE
 sudo ln -s /usr/local/packer /usr/local/bin/packer.io
-rm packer_1.2.3_linux_amd64.zip
+rm $PK_FILE
 
 echo "Added packer successfully"
 echo "-----------------------------------"
