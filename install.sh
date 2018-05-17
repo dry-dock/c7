@@ -51,8 +51,20 @@ sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm
 sudo yum update
 #adding key required to install python
 rpm --import /etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
-sudo yum install -y python36u python36u-libs python36u-devel python36u-pip
-sudo pip3.6 install virtualenv==15.2.0
+
+sudo yum install -y \
+  python-devel \
+  python-pip
+
+## python 3 packages
+sudo yum install -y \
+  python36u \
+  python36u-libs \
+  python36u-devel \
+  python36u-pip
+
+sudo pip install virtualenv==15.2.0
+sudo pip install pyOpenSSL==17.5.0
 
 echo "================= Adding JQ 1.5* ==================="
 sudo yum install jq-1.5*
@@ -109,11 +121,12 @@ mv linux-amd64/helm /usr/local/bin/helm
 rm -rf linux-amd64
 
 echo "================= Adding awscli 1.15.14 ============"
-sudo pip3.6 install  'awscli==1.15.14'
+sudo pip install  'awscli==1.15.14'
 
-#This is an open issue for centos 7: https://github.com/aws/aws-cli/issues/774
+# This does not work because of dependency issue with awsebcli which requires
+# an older version of requests library: https://forums.aws.amazon.com/thread.jspa?threadID=225679
 #echo "================= Adding awsebcli 3.12.4 ============"
-#sudo pip3.6 install -q 'awsebcli==3.12.4'
+#sudo pip install 'awsebcli==3.12.4'
 
 AZURE_CLI_VERSION=2.0*
 echo "================ Adding azure-cli $AZURE_CLI_VERSION  =============="
@@ -133,26 +146,26 @@ sudo chmod +x jfrog
 sudo mv jfrog /usr/bin/jfrog
 
 echo "================ Adding ansible 2.5.2 ===================="
-sudo pip3.6 install 'ansible==2.5.2'
+sudo pip install 'ansible==2.5.2'
 
 echo "================ Adding boto 2.48.0 ======================="
-sudo pip3.6 install  'boto==2.48.0'
+sudo pip install  'boto==2.48.0'
 
 echo "============  Adding boto3 ==============="
-sudo pip3.6 install 'boto3==1.7.16'
+sudo pip install 'boto3==1.7.16'
 
 echo "================ Adding apache-libcloud 2.3.0 ======================="
-sudo pip3.6 install 'apache-libcloud==2.3.0'
+sudo pip install 'apache-libcloud==2.3.0'
 
-#echo "================ Adding azure 3.0 ======================="
-#sudo pip3.6 install 'azure==3.0'
+echo "================ Adding azure 3.0 ======================="
+sudo pip install 'azure==3.0'
 
 echo "================ Adding dopy 0.3.7a ======================="
-sudo pip3.6 install 'dopy==0.3.7a'
+sudo pip install 'dopy==0.3.7a'
 
 echo "================= Adding openstack client 3.15.0 ============"
-sudo pip3.6 install 'python-openstackclient==3.15.0'
-sudo pip3.6 install 'shade==1.28.0'
+sudo pip install 'python-openstackclient==3.15.0'
+sudo pip install 'shade==1.28.0'
 
 export TF_VERSION=0.11.7
 echo "================ Adding terraform-$TF_VERSION===================="
@@ -176,10 +189,10 @@ export PK_FILE=packer_"$PK_VERSION"_linux_amd64.zip
 
 echo "Fetching packer"
 echo "-----------------------------------"
-curl -O https://releases.hashicorp.com/packer/1.2.3/packer_1.2.3_linux_amd64.zip
-sudo unzip -d /usr/local packer_1.2.3_linux_amd64.zip
+curl -O https://releases.hashicorp.com/packer/$PK_VERSION/$PK_FILE
+sudo unzip -d /usr/local $PK_FILE
 sudo ln -s /usr/local/packer /usr/local/bin/packer.io
-rm packer_1.2.3_linux_amd64.zip
+rm $PK_FILE
 
 echo "Added packer successfully"
 echo "-----------------------------------"
