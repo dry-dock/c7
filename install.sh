@@ -43,7 +43,7 @@ yum -y install  \
 echo "================= Installing Htop packages ==================="
 #adding key required to install htop
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
-sudo yum install htop-2.1*
+sudo yum install htop-2.2*
 
 
 echo "================= Installing Python packages ==================="
