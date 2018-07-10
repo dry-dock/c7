@@ -79,7 +79,8 @@ echo "================= Installing Ruby 2.5.1 ==================="
 . /c7/ruby/install.sh
 
 echo "================= Installing Git ==================="
-sudo yum install git-1.8.3.1
+sudo yum install http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm
+sudo yum install git-2.18.0
 
 echo "================= Installing Git LFS ==================="
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash -
@@ -100,7 +101,7 @@ EOM
 #adding key required to install gcloud
 rpm --import  https://packages.cloud.google.com/yum/doc/yum-key.gpg
 rpm --import  https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-sudo yum install -y google-cloud-sdk-200.0*
+sudo yum install -y google-cloud-sdk-207.0*
 
 echo "================= Adding kubectl 1.10.0 ==================="
 curl -sSLO https://storage.googleapis.com/kubernetes-release/release/v1.10.0/bin/linux/amd64/kubectl
