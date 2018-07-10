@@ -69,7 +69,7 @@ sudo pip install pyOpenSSL==18.0.0
 echo "================= Adding JQ 1.5* ==================="
 sudo yum install jq-1.5*
 
-echo "================= Installing Node 9.x ==================="
+echo "================= Installing Node 8.x ==================="
 . /c7/node/install.sh
 
 echo "================= Installing Java 1.8.0 ==================="
