@@ -13,7 +13,7 @@ curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
 rpm --import /etc/pki/rpm-gpg/NODESOURCE-GPG-SIGNING-KEY-EL
 sudo yum install nodejs
 
-echo "================= Installing yarn 1.6* ==================="
+echo "================= Installing yarn 1.7* ==================="
 sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 #adding key required to install yarn
 rpm --import https://dl.yarnpkg.com/rpm/pubkey.gpg
