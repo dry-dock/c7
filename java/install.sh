@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 echo "================= Installing openjdk-10-jdk ==================="
-cd /usr/lib/jvm
+mkdir -p /usr/lib/jvm && cd /usr/lib/jvm
 wget "https://download.java.net/java/GA/jdk10/10.0.2/19aef61b38124481863b1413dce1855f/13/openjdk-10.0.2_linux-x64_bin.tar.gz"
 tar -xzf openjdk-10.0.2_linux-x64_bin.tar.gz
 mv jdk-10.0.2/ java-10-openjdk-amd64
