@@ -72,7 +72,7 @@ sudo yum install jq-1.5*
 echo "================= Installing Node 8.x ==================="
 . /c7/node/install.sh
 
-echo "================= Installing Java 1.8.0 ==================="
+echo "================= Installing Java 10.0.2 ==================="
 . /c7/java/install.sh
 
 echo "================= Installing Ruby 2.5.1 ==================="
