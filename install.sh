@@ -72,7 +72,7 @@ sudo yum install jq-1.5*
 echo "================= Installing Node 8.x ==================="
 . /c7/node/install.sh
 
-echo "================= Installing Java 1.8.0 ==================="
+echo "================= Installing Java 10.x ==================="
 . /c7/java/install.sh
 
 echo "================= Installing Ruby 2.5.1 ==================="
@@ -84,7 +84,7 @@ sudo yum install git-2.18.0
 
 echo "================= Installing Git LFS ==================="
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash -
-sudo yum install git-lfs-2.4*
+sudo yum install git-lfs-2.5*
 git lfs install
 
 echo "================= Adding gcloud ============"
@@ -101,14 +101,14 @@ EOM
 #adding key required to install gcloud
 rpm --import  https://packages.cloud.google.com/yum/doc/yum-key.gpg
 rpm --import  https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-sudo yum install -y google-cloud-sdk-207.0*
+sudo yum install -y google-cloud-sdk-211.0*
 
 echo "================= Adding kubectl 1.11.0 ==================="
 curl -sSLO https://storage.googleapis.com/kubernetes-release/release/v1.11.0/bin/linux/amd64/kubectl
 sudo chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 
-KOPS_VERSION=1.9.1
+KOPS_VERSION=1.9.2
 echo "Installing KOPS version: $KOPS_VERSION"
 curl -LO https://github.com/kubernetes/kops/releases/download/"$KOPS_VERSION"/kops-linux-amd64
 sudo chmod +x kops-linux-amd64
@@ -121,8 +121,8 @@ tar -zxvf helm-"$HELM_VERSION"-linux-amd64.tar.gz
 mv linux-amd64/helm /usr/local/bin/helm
 rm -rf linux-amd64
 
-echo "================= Adding awscli 1.15.55 ============"
-sudo pip install  'awscli==1.15.55'
+echo "================= Adding awscli 1.15.73 ============"
+sudo pip install  'awscli==1.15.73'
 
 # This does not work because of dependency issue with awsebcli which requires
 # an older version of requests library: https://forums.aws.amazon.com/thread.jspa?threadID=225679
@@ -141,19 +141,19 @@ tar xf doctl-1.8.3-linux-amd64.tar.gz
 sudo mv doctl /usr/local/bin
 rm doctl-1.8.3-linux-amd64.tar.gz
 
-echo "================= Adding jfrog-cli 1.17.0 ==================="
-wget -nv https://api.bintray.com/content/jfrog/jfrog-cli-go/1.17.0/jfrog-cli-linux-amd64/jfrog?bt_package=jfrog-cli-linux-amd64 -O jfrog
+echo "================= Adding jfrog-cli 1.18.0 ==================="
+wget -nv https://api.bintray.com/content/jfrog/jfrog-cli-go/1.18.0/jfrog-cli-linux-amd64/jfrog?bt_package=jfrog-cli-linux-amd64 -O jfrog
 sudo chmod +x jfrog
 sudo mv jfrog /usr/bin/jfrog
 
-echo "================ Adding ansible 2.6.1 ===================="
-sudo pip install 'ansible==2.6.1'
+echo "================ Adding ansible 2.6.2 ===================="
+sudo pip install 'ansible==2.6.2'
 
-echo "================ Adding boto 2.48.0 ======================="
-sudo pip install  'boto==2.48.0'
+echo "================ Adding boto 2.49.0 ======================="
+sudo pip install  'boto==2.49.0'
 
 echo "============  Adding boto3 ==============="
-sudo pip install 'boto3==1.7.54'
+sudo pip install 'boto3==1.7.72'
 
 echo "================ Adding apache-libcloud 2.3.0 ======================="
 sudo pip install 'apache-libcloud==2.3.0'
@@ -165,8 +165,8 @@ echo "================ Adding dopy 0.3.7a ======================="
 sudo pip install 'dopy==0.3.7a'
 
 echo "================= Adding openstack client 3.15.0 ============"
-sudo pip install 'python-openstackclient==3.15.0'
-sudo pip install 'shade==1.28.0'
+sudo pip install 'python-openstackclient==3.16.0'
+sudo pip install 'shade==1.29.0'
 
 export TF_VERSION=0.11.7
 echo "================ Adding terraform-$TF_VERSION===================="
@@ -184,7 +184,7 @@ mv /tmp/terraform/terraform /usr/bin/terraform
 echo "Added terraform successfully"
 echo "-----------------------------------"
 
-export PK_VERSION=1.2.4
+export PK_VERSION=1.2.5
 echo "================ Adding packer $PK_VERSION ===================="
 export PK_FILE=packer_"$PK_VERSION"_linux_amd64.zip
 
