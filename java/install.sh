@@ -12,7 +12,7 @@ sudo update-alternatives --set java /usr/lib/jvm/java-10-openjdk-amd64/bin/java
 sudo update-alternatives --set javac /usr/lib/jvm/java-10-openjdk-amd64/bin/javac
 
 echo 'export JAVA_HOME=/usr/lib/jvm/java-10-openjdk-amd64' >> /etc/drydock/.env
-echo 'export PATH="$PATH:/usr/lib/jvm/java-10-openjdk-amd64/bin/java/bin' >> /etc/drydock/.env
+echo 'export PATH="$PATH:/usr/lib/jvm/java-10-openjdk-amd64/bin/java/bin"' >> /etc/drydock/.env
 
 
 echo "================ Installing oracle-java10-installer ================="
