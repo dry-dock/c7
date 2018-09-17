@@ -101,28 +101,28 @@ EOM
 #adding key required to install gcloud
 rpm --import  https://packages.cloud.google.com/yum/doc/yum-key.gpg
 rpm --import  https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-sudo yum install -y google-cloud-sdk-211.0*
+sudo yum install -y google-cloud-sdk-216.0*
 
 echo "================= Adding kubectl 1.11.0 ==================="
 curl -sSLO https://storage.googleapis.com/kubernetes-release/release/v1.11.0/bin/linux/amd64/kubectl
 sudo chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 
-KOPS_VERSION=1.9.2
+KOPS_VERSION=1.10.0
 echo "Installing KOPS version: $KOPS_VERSION"
 curl -LO https://github.com/kubernetes/kops/releases/download/"$KOPS_VERSION"/kops-linux-amd64
 sudo chmod +x kops-linux-amd64
 sudo mv kops-linux-amd64 /usr/local/bin/kops
 
-HELM_VERSION=v2.9.1
+HELM_VERSION=v2.10.0
 echo "Installing helm version: $HELM_VERSION"
 wget https://storage.googleapis.com/kubernetes-helm/helm-"$HELM_VERSION"-linux-amd64.tar.gz
 tar -zxvf helm-"$HELM_VERSION"-linux-amd64.tar.gz
 mv linux-amd64/helm /usr/local/bin/helm
 rm -rf linux-amd64
 
-echo "================= Adding awscli 1.15.73 ============"
-sudo pip install  'awscli==1.15.73'
+echo "================= Adding awscli 1.16.14 ============"
+sudo pip install  'awscli==1.16.14'
 
 # This does not work because of dependency issue with awsebcli which requires
 # an older version of requests library: https://forums.aws.amazon.com/thread.jspa?threadID=225679
@@ -135,25 +135,25 @@ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
 sudo yum install azure-cli-$AZURE_CLI_VERSION
 
-echo "================= Adding doctl 1.8.3 ============"
-curl -OL https://github.com/digitalocean/doctl/releases/download/v1.8.3/doctl-1.8.3-linux-amd64.tar.gz
-tar xf doctl-1.8.3-linux-amd64.tar.gz
+echo "================= Adding doctl 1.9.0 ============"
+curl -OL https://github.com/digitalocean/doctl/releases/download/v1.9.0/doctl-1.9.0-linux-amd64.tar.gz
+tar xf doctl-1.9.0-linux-amd64.tar.gz
 sudo mv doctl /usr/local/bin
-rm doctl-1.8.3-linux-amd64.tar.gz
+rm doctl-1.9.0-linux-amd64.tar.gz
 
-echo "================= Adding jfrog-cli 1.18.0 ==================="
-wget -nv https://api.bintray.com/content/jfrog/jfrog-cli-go/1.18.0/jfrog-cli-linux-amd64/jfrog?bt_package=jfrog-cli-linux-amd64 -O jfrog
+echo "================= Adding jfrog-cli 1.19.1 ==================="
+wget -nv https://api.bintray.com/content/jfrog/jfrog-cli-go/1.19.1/jfrog-cli-linux-amd64/jfrog?bt_package=jfrog-cli-linux-amd64 -O jfrog
 sudo chmod +x jfrog
 sudo mv jfrog /usr/bin/jfrog
 
-echo "================ Adding ansible 2.6.2 ===================="
-sudo pip install 'ansible==2.6.2'
+echo "================ Adding ansible 2.6.4 ===================="
+sudo pip install 'ansible==2.6.4'
 
 echo "================ Adding boto 2.49.0 ======================="
 sudo pip install  'boto==2.49.0'
 
 echo "============  Adding boto3 ==============="
-sudo pip install 'boto3==1.7.72'
+sudo pip install 'boto3==1.9.4'
 
 echo "================ Adding apache-libcloud 2.3.0 ======================="
 sudo pip install 'apache-libcloud==2.3.0'
@@ -164,11 +164,11 @@ sudo pip install 'azure==3.0'
 echo "================ Adding dopy 0.3.7a ======================="
 sudo pip install 'dopy==0.3.7a'
 
-echo "================= Adding openstack client 3.15.0 ============"
-sudo pip install 'python-openstackclient==3.16.0'
+echo "================= Adding openstack client 3.16.1 ============"
+sudo pip install 'python-openstackclient==3.16.1'
 sudo pip install 'shade==1.29.0'
 
-export TF_VERSION=0.11.7
+export TF_VERSION=0.11.8
 echo "================ Adding terraform-$TF_VERSION===================="
 export TF_FILE=terraform_"$TF_VERSION"_linux_amd64.zip
 
@@ -184,7 +184,7 @@ mv /tmp/terraform/terraform /usr/bin/terraform
 echo "Added terraform successfully"
 echo "-----------------------------------"
 
-export PK_VERSION=1.2.5
+export PK_VERSION=1.3.0
 echo "================ Adding packer $PK_VERSION ===================="
 export PK_FILE=packer_"$PK_VERSION"_linux_amd64.zip
 
