@@ -63,8 +63,13 @@ sudo yum install -y \
   python36u-devel \
   python36u-pip
 
-sudo pip install virtualenv==16.0.0
-sudo pip install pyOpenSSL==18.0.0
+export VIRTUALENV_VERSION=16.0.0
+echo "================= Adding $VIRTUALENV_VERSION ==================="
+sudo pip install virtualenv=="$VIRTUALENV_VERSION"
+
+export PYOPENSSL_VERSION=18.0.0
+echo "================= Adding pyopenssl $PYOPENSSL_VERSION ==================="
+sudo pip install pyOpenSSL=="$PYOPENSSL_VERSION"
 
 echo "================= Adding JQ 1.5* ==================="
 sudo yum install jq-1.5*
@@ -121,8 +126,9 @@ tar -zxvf helm-"$HELM_VERSION"-linux-amd64.tar.gz
 mv linux-amd64/helm /usr/local/bin/helm
 rm -rf linux-amd64
 
-echo "================= Adding awscli 1.16.14 ============"
-sudo pip install  'awscli==1.16.14'
+export AWS_VERSION=1.16.14
+echo "================= Adding awscli "$AWS_VERSION" ============"
+sudo pip install  awscli=="$AWS_VERSION"
 
 # This does not work because of dependency issue with awsebcli which requires
 # an older version of requests library: https://forums.aws.amazon.com/thread.jspa?threadID=225679
@@ -135,38 +141,50 @@ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
 sudo yum install azure-cli-$AZURE_CLI_VERSION
 
-echo "================= Adding doctl 1.9.0 ============"
-curl -OL https://github.com/digitalocean/doctl/releases/download/v1.9.0/doctl-1.9.0-linux-amd64.tar.gz
-tar xf doctl-1.9.0-linux-amd64.tar.gz
+export DOCTL_VERSION=1.9.0
+echo "================= Adding doctl $DOCTL_VERSION============"
+curl -OL https://github.com/digitalocean/doctl/releases/download/v"$DOCTL_VERSION"/doctl-"$DOCTL_VERSION"-linux-amd64.tar.gz
+tar xf doctl-"$DOCTL_VERSION"-linux-amd64.tar.gz
 sudo mv doctl /usr/local/bin
-rm doctl-1.9.0-linux-amd64.tar.gz
+rm doctl-"$DOCTL_VERSION"-linux-amd64.tar.gz
 
-echo "================= Adding jfrog-cli 1.19.1 ==================="
-wget -nv https://api.bintray.com/content/jfrog/jfrog-cli-go/1.19.1/jfrog-cli-linux-amd64/jfrog?bt_package=jfrog-cli-linux-amd64 -O jfrog
+export JFROG_VERSION=1.19.1
+echo "================= Adding jfrog-cli "$JFROG_VERSION"==================="
+wget -nv https://api.bintray.com/content/jfrog/jfrog-cli-go/"$JFROG_VERSION"/jfrog-cli-linux-amd64/jfrog?bt_package=jfrog-cli-linux-amd64 -O jfrog
 sudo chmod +x jfrog
 sudo mv jfrog /usr/bin/jfrog
 
-echo "================ Adding ansible 2.6.4 ===================="
-sudo pip install 'ansible==2.6.4'
+export ANSIBLE_VERSION=2.6.4
+echo "================ Adding ansible $ANSIBLE_VERSION===================="
+sudo pip install ansible=="$ANSIBLE_VERSION"
 
-echo "================ Adding boto 2.49.0 ======================="
-sudo pip install  'boto==2.49.0'
+export BOTO_VERSION=2.49.0
+echo "================ Adding boto $BOTO_VERSION ======================="
+sudo pip install  boto=="$BOTO_VERSION"
 
-echo "============  Adding boto3 ==============="
-sudo pip install 'boto3==1.9.4'
+export BOTO3_VERSION=1.9.4
+echo "============  Adding boto3 "$BOTO_VERSION" ==============="
+sudo pip install boto3=="$BOTO3_VERSION"
 
-echo "================ Adding apache-libcloud 2.3.0 ======================="
-sudo pip install 'apache-libcloud==2.3.0'
+export APACHE_LIBCLOUD=2.3.0
+echo "================ Adding apache-libcloud $APACHE_LIBCLOUD ======================="
+sudo pip install apache-libcloud=="$APACHE_LIBCLOUD"
 
-echo "================ Adding azure 3.0 ======================="
-sudo pip install 'azure==3.0'
+export AZURE_VERSION=3.0
+echo "================ Adding azure $AZURE_VERSION ======================="
+sudo pip install azure=="$AZURE_VERSION"
 
-echo "================ Adding dopy 0.3.7a ======================="
-sudo pip install 'dopy==0.3.7a'
+export DOPY_VERSION=0.3.7a
+echo "================ Adding dopy $DOPY_VERSION ======================="
+sudo pip install dopy=="$DOPY_VERSION"
 
-echo "================= Adding openstack client 3.16.1 ============"
-sudo pip install 'python-openstackclient==3.16.1'
-sudo pip install 'shade==1.29.0'
+export OPENSTACKCLIENT_VERSION=3.16.1
+echo "================= Adding openstack client $OPENSTACKCLIENT_VERSION ============"
+sudo pip install python-openstackclient=="$OPENSTACKCLIENT_VERSION"
+
+export SHADE_VERSION=1.29.0
+echo "==================adding shade $SHADE_VERSION================"
+sudo pip install shade=="$SHADE_VERSION"
 
 export TF_VERSION=0.11.8
 echo "================ Adding terraform-$TF_VERSION===================="
