@@ -89,10 +89,11 @@ sudo yum install git-2.18.0
 
 echo "================= Installing Git LFS ==================="
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash -
-sudo yum install git-lfs-2.5*
+sudo yum install git-lfs-2.5.2
 git lfs install
 
-echo "================= Adding gcloud ============"
+export GCLOUD_SDKREPO=218.0*
+echo "================= Adding gcloud "$GCLOUD_SDKREPO"  ============"
 sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo << EOM
 [google-cloud-sdk]
 name=Google Cloud SDK
@@ -106,10 +107,12 @@ EOM
 #adding key required to install gcloud
 rpm --import  https://packages.cloud.google.com/yum/doc/yum-key.gpg
 rpm --import  https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-sudo yum install -y google-cloud-sdk-216.0*
+sudo yum install -y google-cloud-sdk-"$GCLOUD_SDKREPO"
 
-echo "================= Adding kubectl 1.11.0 ==================="
-curl -sSLO https://storage.googleapis.com/kubernetes-release/release/v1.11.0/bin/linux/amd64/kubectl
+
+KUBECTL_VERSION=v1.12.0
+echo "================= Adding kubectl "$KUBECTL_VERSION" ==================="
+curl -sSLO https://storage.googleapis.com/kubernetes-release/release/"$KUBECTL_VERSION"/bin/linux/amd64/kubectl
 sudo chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 
@@ -119,14 +122,14 @@ curl -LO https://github.com/kubernetes/kops/releases/download/"$KOPS_VERSION"/ko
 sudo chmod +x kops-linux-amd64
 sudo mv kops-linux-amd64 /usr/local/bin/kops
 
-HELM_VERSION=v2.10.0
+HELM_VERSION=v2.11.0
 echo "Installing helm version: $HELM_VERSION"
 wget https://storage.googleapis.com/kubernetes-helm/helm-"$HELM_VERSION"-linux-amd64.tar.gz
 tar -zxvf helm-"$HELM_VERSION"-linux-amd64.tar.gz
 mv linux-amd64/helm /usr/local/bin/helm
 rm -rf linux-amd64
 
-export AWS_VERSION=1.16.14
+export AWS_VERSION=1.16.24
 echo "================= Adding awscli "$AWS_VERSION" ============"
 sudo pip install  awscli=="$AWS_VERSION"
 
@@ -148,13 +151,13 @@ tar xf doctl-"$DOCTL_VERSION"-linux-amd64.tar.gz
 sudo mv doctl /usr/local/bin
 rm doctl-"$DOCTL_VERSION"-linux-amd64.tar.gz
 
-export JFROG_VERSION=1.19.1
+export JFROG_VERSION=1.20.1
 echo "================= Adding jfrog-cli "$JFROG_VERSION"==================="
 wget -nv https://api.bintray.com/content/jfrog/jfrog-cli-go/"$JFROG_VERSION"/jfrog-cli-linux-amd64/jfrog?bt_package=jfrog-cli-linux-amd64 -O jfrog
 sudo chmod +x jfrog
 sudo mv jfrog /usr/bin/jfrog
 
-export ANSIBLE_VERSION=2.6.4
+export ANSIBLE_VERSION=2.6.5
 echo "================ Adding ansible $ANSIBLE_VERSION===================="
 sudo pip install ansible=="$ANSIBLE_VERSION"
 
@@ -162,7 +165,7 @@ export BOTO_VERSION=2.49.0
 echo "================ Adding boto $BOTO_VERSION ======================="
 sudo pip install  boto=="$BOTO_VERSION"
 
-export BOTO3_VERSION=1.9.4
+export BOTO3_VERSION=1.9.14
 echo "============  Adding boto3 "$BOTO_VERSION" ==============="
 sudo pip install boto3=="$BOTO3_VERSION"
 
@@ -202,7 +205,7 @@ mv /tmp/terraform/terraform /usr/bin/terraform
 echo "Added terraform successfully"
 echo "-----------------------------------"
 
-export PK_VERSION=1.3.0
+export PK_VERSION=1.3.1
 echo "================ Adding packer $PK_VERSION ===================="
 export PK_FILE=packer_"$PK_VERSION"_linux_amd64.zip
 
