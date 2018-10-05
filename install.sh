@@ -77,15 +77,19 @@ sudo yum install jq-1.5*
 echo "================= Installing Node 8.x ==================="
 . /c7/node/install.sh
 
-echo "================= Installing Java 10.x ==================="
+echo "================= Installing Java 11 ==================="
 . /c7/java/install.sh
 
 echo "================= Installing Ruby 2.5.1 ==================="
 . /c7/ruby/install.sh
 
-echo "================= Installing Git ==================="
-sudo yum install http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm
-sudo yum install git-2.18.0
+export GIT_VERSION="2.19.0"
+echo "================= Installing Git $GIT_VERSION ==================="
+wget https://www.kernel.org/pub/software/scm/git/$GIT_VERSION.tar.gz
+tar -xvf git-$GIT_VERSION.tar.gz
+cd git-$GIT_VERSION
+./configure
+make && make install
 
 echo "================= Installing Git LFS ==================="
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash -
