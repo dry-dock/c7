@@ -92,7 +92,7 @@ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.s
 sudo yum install git-lfs-2.5.2
 git lfs install
 
-GCLOUD_SDKREPO=218.0*
+export GCLOUD_SDKREPO=218.0*
 echo "================= Adding gcloud "$GCLOUD_SDKREPO"  ============"
 sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo << EOM
 [google-cloud-sdk]
