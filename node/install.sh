@@ -16,7 +16,7 @@ curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
 #adding key required to install nodejs
 rpm --import /etc/pki/rpm-gpg/NODESOURCE-GPG-SIGNING-KEY-EL
 sudo yum install nodejs
-npm install npm@"NPM_VERSION" -g
+npm install npm@"$NPM_VERSION" -g
 
 export YARN_VERSION=1.10*
 echo "================= Installing yarn $YARN_VERSION ==================="
