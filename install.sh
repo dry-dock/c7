@@ -83,11 +83,10 @@ echo "================= Installing Java 11 ==================="
 echo "================= Installing Ruby 2.5.1 ==================="
 . /c7/ruby/install.sh
 
-export GIT_VERSION="2.19.0"
 echo "================= Installing Git $GIT_VERSION ==================="
-wget https://www.kernel.org/pub/software/scm/git/$GIT_VERSION.tar.gz
-tar -xvf git-$GIT_VERSION.tar.gz
-cd git-$GIT_VERSION
+wget https://www.kernel.org/pub/software/scm/git/git-2.19.0.tar.gz
+tar -xvf git-2.19.0.tar.gz
+cd git-2.19.0
 ./configure
 make && make install
 
