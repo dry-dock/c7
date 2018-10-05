@@ -109,9 +109,9 @@ rpm --import  https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 sudo yum install -y google-cloud-sdk-218.0*
 
 
-KUBECTL_VERSION=1.12.0
+KUBECTL_VERSION=v1.12.0
 echo "================= Adding kubectl "$KUBECTL_VERSION" ==================="
-curl -sSLO https://storage.googleapis.com/kubernetes-release/release/v"$KUBECTL_VERSION"/bin/linux/amd64/kubectl
+curl -sSLO https://storage.googleapis.com/kubernetes-release/release/"$KUBECTL_VERSION"/bin/linux/amd64/kubectl
 sudo chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 
