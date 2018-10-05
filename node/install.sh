@@ -18,7 +18,7 @@ rpm --import /etc/pki/rpm-gpg/NODESOURCE-GPG-SIGNING-KEY-EL
 sudo yum install nodejs
 npm install npm@"NPM_VERSION" -g
 
-export export YARN_VERSION=1.10*
+export YARN_VERSION=1.10*
 echo "================= Installing yarn $YARN_VERSION ==================="
 sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 #adding key required to install yarn
