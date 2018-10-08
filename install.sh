@@ -83,12 +83,9 @@ echo "================= Installing Java 11 ==================="
 echo "================= Installing Ruby 2.5.1 ==================="
 . /c7/ruby/install.sh
 
-echo "================= Installing Git $GIT_VERSION ==================="
-wget https://www.kernel.org/pub/software/scm/git/git-2.19.0.tar.gz
-tar -xvf git-2.19.0.tar.gz
-cd git-2.19.0
-./configure
-make && make install
+echo "================= Installing Git ==================="
+sudo yum install http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm
+sudo yum install git-2.18.0
 
 echo "================= Installing Git LFS ==================="
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash -
