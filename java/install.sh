@@ -7,10 +7,10 @@ wget "https://download.java.net/java/ga/jdk11/openjdk-"$OPENJDK_VERSION"_linux-x
 tar -xzf openjdk-"$OPENJDK_VERSION"_linux-x64_bin.tar.gz
 mv jdk-"$OPENJDK_VERSION"/ java-11-openjdk-amd64
 
-sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-11-openjdk-amd64/bin/java 1
-sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-11-openjdk-amd64/bin/javac 1
-sudo update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java
-sudo update-alternatives --set javac /usr/lib/jvm/java-11-openjdk-amd64/bin/javac
+sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-$OPENJDK_VERSION-openjdk-amd64/bin/java 1
+sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-$OPENJDK_VERSION-openjdk-amd64/bin/javac 1
+sudo update-alternatives --set java /usr/lib/jvm/java-$OPENJDK_VERSION-openjdk-amd64/bin/java
+sudo update-alternatives --set javac /usr/lib/jvm/java-$OPENJDK_VERSION-openjdk-amd64/bin/javac
 
 echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64' >> /etc/drydock/.env
 echo 'export PATH="$PATH:/usr/lib/jvm/java-11-openjdk-amd64/bin/java/bin"' >> /etc/drydock/.env
@@ -27,7 +27,7 @@ wget --no-cookies \
   "http://download.oracle.com/otn-pub/java/jdk/11+28/55eed80b163941c8885ad9298e6d786a/jdk-"$ORACLEJDK_VERSION"_linux-x64_bin.rpm"
 
 sudo yum localinstall -y jdk-"$ORACLEJDK_VERSION"_linux-x64_bin.rpm
-sudo update-alternatives --set javac /usr/java/jdk-11/bin/javac
+sudo update-alternatives --set javac /usr/java/jdk-$ORACLEJDK_VERSION/bin/javac
 
 rm jdk-"$ORACLEJDK_VERSION"_linux-x64_bin.rpm
 
