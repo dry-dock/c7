@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-echo "================= Installing openjdk-10-jdk ==================="
+echo "================= Installing openjdk-11-jdk ==================="
 mkdir -p /usr/lib/jvm && cd /usr/lib/jvm
 wget "https://download.java.net/java/ga/jdk11/openjdk-11_linux-x64_bin.tar.gz"
 tar -xzf openjdk-11_linux-x64_bin.tar.gz
@@ -15,7 +15,7 @@ echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64' >> /etc/drydock/.env
 echo 'export PATH="$PATH:/usr/lib/jvm/java-11-openjdk-amd64/bin/java/bin"' >> /etc/drydock/.env
 
 
-echo "================ Installing oracle-java10-installer ================="
+echo "================ Installing oracle-java11-installer ================="
 
 wget --no-cookies \
   --no-check-certificate \
