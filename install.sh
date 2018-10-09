@@ -71,16 +71,17 @@ export PYOPENSSL_VERSION=18.0.0
 echo "================= Adding pyopenssl $PYOPENSSL_VERSION ==================="
 sudo pip install pyOpenSSL=="$PYOPENSSL_VERSION"
 
-echo "================= Adding JQ 1.5* ==================="
-sudo yum install jq-1.5*
+export JQ_VERSION=1.5*
+echo "================= Adding JQ $JQ_VERSION ==================="
+sudo yum install jq-"$JQ_VERSION"
 
-echo "================= Installing Node 8.x ==================="
+echo "================= Installing Node  ==================="
 . /c7/node/install.sh
 
-echo "================= Installing Java 10.x ==================="
+echo "================= Installing Java  ==================="
 . /c7/java/install.sh
 
-echo "================= Installing Ruby 2.5.1 ==================="
+echo "================= Installing Ruby  ==================="
 . /c7/ruby/install.sh
 
 echo "================= Installing Git ==================="
