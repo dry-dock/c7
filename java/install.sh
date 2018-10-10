@@ -5,7 +5,7 @@ echo "================= Installing openjdk $OPENJDK_VERSION ==================="
 mkdir -p /usr/lib/jvm && cd /usr/lib/jvm
 wget "https://download.java.net/java/ga/jdk$OPENJDK_VERSION/openjdk-"$OPENJDK_VERSION"_linux-x64_bin.tar.gz"
 tar -xzf openjdk-"$OPENJDK_VERSION"_linux-x64_bin.tar.gz
-mv jdk-"$OPENJDK_VERSION"/ java--openjdk-amd64
+mv jdk-"$OPENJDK_VERSION"/ java-$OPENJDK_VERSION-openjdk-amd64
 
 sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-$OPENJDK_VERSION-openjdk-amd64/bin/java 1
 sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-$OPENJDK_VERSION-openjdk-amd64/bin/javac 1
