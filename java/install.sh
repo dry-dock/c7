@@ -14,8 +14,8 @@ sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-"$JAVA
 sudo update-alternatives --set java /usr/lib/jvm/java-"$JAVA_VERSION"-openjdk-amd64/bin/java
 sudo update-alternatives --set javac /usr/lib/jvm/java-"$JAVA_VERSION"-openjdk-amd64/bin/javac
 
-echo "export JAVA_HOME=/usr/lib/jvm/java-${$JAVA_VERSION}-openjdk-amd64" >> /etc/drydock/.env
-echo "export PATH=$PATH:/usr/lib/jvm/java-${$JAVA_VERSION}-openjdk-amd64/bin/java/bin" >> /etc/drydock/.env
+echo "export JAVA_HOME=/usr/lib/jvm/java-${JAVA_VERSION}-openjdk-amd64" >> /etc/drydock/.env
+echo "export PATH=$PATH:/usr/lib/jvm/java-${JAVA_VERSION}-openjdk-amd64/bin/java/bin" >> /etc/drydock/.env
 
 export ORACLEJDK_VERSION=11.0.1
 echo "================ Installing oracle-java"$ORACLEJDK_VERSION"-installer ================="
