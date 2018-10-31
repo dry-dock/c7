@@ -91,7 +91,7 @@ sudo yum install gcc perl-ExtUtils-MakeMaker
 cd /usr/src
 wget https://www.kernel.org/pub/software/scm/git/git-"$GIT_VERSION".tar.gz
 tar xzf git-"$GIT_VERSION".tar.gz
-cd git-2.19.1
+cd git-"$GIT_VERSION"
 make prefix=/usr/local/git all
 make prefix=/usr/local/git install
 echo "export PATH=/usr/local/git/bin:$PATH" >> /etc/bashrc
