@@ -15,7 +15,7 @@ echo "================= Installing nodejs $NODEJS_VERSION ==================="
 curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -
 #adding key required to install nodejs
 rpm --import /etc/pki/rpm-gpg/NODESOURCE-GPG-SIGNING-KEY-EL
-sudo yum install nodejs
+sudo yum install nodejs-"$NODEJS_VERSION"
 npm install npm@"$NPM_VERSION" -g
 
 export YARN_VERSION=1.12*
@@ -23,4 +23,4 @@ echo "================= Installing yarn $YARN_VERSION ==================="
 sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 #adding key required to install yarn
 rpm --import https://dl.yarnpkg.com/rpm/pubkey.gpg
-sudo yum install yarn
+sudo yum install yarn-"$YARN_VERSION"
