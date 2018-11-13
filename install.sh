@@ -84,18 +84,9 @@ echo "================= Installing Java  ==================="
 echo "================= Installing Ruby  ==================="
 . /c7/ruby/install.sh
 
-export GIT_VERSION=2.19.1
 echo "================= Installing Git ==================="
-sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel
-sudo yum install gcc perl-ExtUtils-MakeMaker
-cd /usr/src
-wget https://www.kernel.org/pub/software/scm/git/git-"$GIT_VERSION".tar.gz
-tar xzf git-"$GIT_VERSION".tar.gz
-cd git-"$GIT_VERSION"
-make prefix=/usr/local/git all
-make prefix=/usr/local/git install
-echo "export PATH=/usr/local/git/bin:$PATH" >> /etc/bashrc
-source /etc/bashrc
+sudo yum install http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm
+sudo yum install git-2.18.0
 
 echo "================= Installing Git LFS ==================="
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash -
