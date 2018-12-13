@@ -8,7 +8,7 @@ curl https://raw.githubusercontent.com/creationix/nvm/$NVM_VERSION/install.sh | 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-export NODEJS_VERSION=10.13*
+export NODEJS_VERSION=10.14*
 export NPM_VERSION=6.4.1
 
 echo "================= Installing nodejs $NODEJS_VERSION ==================="
