@@ -13,8 +13,8 @@ echo "================= Installing RVM ==================="
 curl -sSL https://get.rvm.io | bash -s stable
 
 # Set source to rvm
-source /usr/local/rvm/scripts/rvm
-rvm requirements
+source /usr/local/rvm/scripts/rvm || true
+rvm requirements 
 
 export RVM_VERSION=2.5.3
 echo "================= Installing default ruby ==================="
