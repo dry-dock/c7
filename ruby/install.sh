@@ -5,12 +5,12 @@
 cd /root
 
 # added to fix https://github.com/rvm/rvm/issues/3108
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 curl -sSL https://rvm.io/mpapis.asc | sudo gpg --import -
 sudo yum install which
 
+export RVM_VERSION=1.29.4
 echo "================= Installing RVM ==================="
-curl -sSL https://get.rvm.io |  bash -s -- --version 1.29.4
+curl -sSL https://get.rvm.io |  bash -s -- --version "$RVM_VERSION"
 
 # Set source to rvm
 source /usr/local/rvm/scripts/rvm
