@@ -10,13 +10,13 @@ curl -sSL https://rvm.io/mpapis.asc | sudo gpg --import -
 sudo yum install which
 
 echo "================= Installing RVM ==================="
-curl -sSL https://get.rvm.io | bash -s stable
+curl -sSL https://get.rvm.io |  bash -s -- --version 1.29.4
 
 # Set source to rvm
 source /usr/local/rvm/scripts/rvm
 rvm requirements
 
-export RVM_VERSION=2.5.3
+export RVM_VERSION=2.6.0
 echo "================= Installing default ruby ==================="
 rvm install "$RVM_VERSION"
 
