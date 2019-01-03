@@ -91,7 +91,7 @@ sudo yum install git-2.18.0
 export GITLFS_VERSION=2.6.1
 echo "================= Installing Git LFS ==================="
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash -
-sudo yum install git-lfs=="$GITLFS_VERSION"
+sudo yum install git-lfs-"$GITLFS_VERSION"
 git lfs install
 
 export GCLOUD_SDKREPO=228.0*
