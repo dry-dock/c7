@@ -63,7 +63,7 @@ sudo yum install -y \
   python36u-devel \
   python36u-pip
 
-export VIRTUALENV_VERSION=16.0.0
+export VIRTUALENV_VERSION=16.2.0
 echo "================= Adding $VIRTUALENV_VERSION ==================="
 sudo pip install virtualenv=="$VIRTUALENV_VERSION"
 
@@ -88,12 +88,13 @@ echo "================= Installing Git ==================="
 sudo yum install http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm
 sudo yum install git-2.18.0
 
+export GITLFS_VERSION=2.6.1
 echo "================= Installing Git LFS ==================="
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash -
-sudo yum install git-lfs-2.5.2
+sudo yum install git-lfs-"$GITLFS_VERSION"
 git lfs install
 
-export GCLOUD_SDKREPO=222.0*
+export GCLOUD_SDKREPO=228.0*
 echo "================= Adding gcloud "$GCLOUD_SDKREPO"  ============"
 sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo << EOM
 [google-cloud-sdk]
@@ -111,26 +112,26 @@ rpm --import  https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 sudo yum install -y google-cloud-sdk-"$GCLOUD_SDKREPO"
 
 
-KUBECTL_VERSION=v1.12.2
+KUBECTL_VERSION=v1.13.1
 echo "================= Adding kubectl "$KUBECTL_VERSION" ==================="
 curl -sSLO https://storage.googleapis.com/kubernetes-release/release/"$KUBECTL_VERSION"/bin/linux/amd64/kubectl
 sudo chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 
-KOPS_VERSION=1.10.0
+KOPS_VERSION=1.10.1
 echo "Installing KOPS version: $KOPS_VERSION"
 curl -LO https://github.com/kubernetes/kops/releases/download/"$KOPS_VERSION"/kops-linux-amd64
 sudo chmod +x kops-linux-amd64
 sudo mv kops-linux-amd64 /usr/local/bin/kops
 
-HELM_VERSION=v2.11.0
+HELM_VERSION=v2.12.1
 echo "Installing helm version: $HELM_VERSION"
 wget https://storage.googleapis.com/kubernetes-helm/helm-"$HELM_VERSION"-linux-amd64.tar.gz
 tar -zxvf helm-"$HELM_VERSION"-linux-amd64.tar.gz
 mv linux-amd64/helm /usr/local/bin/helm
 rm -rf linux-amd64
 
-export AWS_VERSION=1.16.43
+export AWS_VERSION=1.16.81
 echo "================= Adding awscli "$AWS_VERSION" ============"
 sudo pip install  awscli=="$AWS_VERSION"
 
@@ -145,20 +146,20 @@ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
 sudo yum install azure-cli-$AZURE_CLI_VERSION
 
-export DOCTL_VERSION=1.11.0
+export DOCTL_VERSION=1.12.2
 echo "================= Adding doctl $DOCTL_VERSION============"
 curl -OL https://github.com/digitalocean/doctl/releases/download/v"$DOCTL_VERSION"/doctl-"$DOCTL_VERSION"-linux-amd64.tar.gz
 tar xf doctl-"$DOCTL_VERSION"-linux-amd64.tar.gz
 sudo mv doctl /usr/local/bin
 rm doctl-"$DOCTL_VERSION"-linux-amd64.tar.gz
 
-export JFROG_VERSION=1.20.2
+export JFROG_VERSION=1.23.1
 echo "================= Adding jfrog-cli "$JFROG_VERSION"==================="
 wget -nv https://api.bintray.com/content/jfrog/jfrog-cli-go/"$JFROG_VERSION"/jfrog-cli-linux-amd64/jfrog?bt_package=jfrog-cli-linux-amd64 -O jfrog
 sudo chmod +x jfrog
 sudo mv jfrog /usr/bin/jfrog
 
-export ANSIBLE_VERSION=2.7.1
+export ANSIBLE_VERSION=2.7.5
 echo "================ Adding ansible $ANSIBLE_VERSION===================="
 sudo pip install ansible=="$ANSIBLE_VERSION"
 
@@ -166,11 +167,11 @@ export BOTO_VERSION=2.49.0
 echo "================ Adding boto $BOTO_VERSION ======================="
 sudo pip install  boto=="$BOTO_VERSION"
 
-export BOTO3_VERSION=1.9.33
+export BOTO3_VERSION=1.9.71
 echo "============  Adding boto3 "$BOTO_VERSION" ==============="
 sudo pip install boto3=="$BOTO3_VERSION"
 
-export APACHE_LIBCLOUD=2.3.0
+export APACHE_LIBCLOUD=2.4.0
 echo "================ Adding apache-libcloud $APACHE_LIBCLOUD ======================="
 sudo pip install apache-libcloud=="$APACHE_LIBCLOUD"
 
@@ -182,7 +183,7 @@ export DOPY_VERSION=0.3.7a
 echo "================ Adding dopy $DOPY_VERSION ======================="
 sudo pip install dopy=="$DOPY_VERSION"
 
-export OPENSTACKCLIENT_VERSION=3.16.1
+export OPENSTACKCLIENT_VERSION=3.17.0
 echo "================= Adding openstack client $OPENSTACKCLIENT_VERSION ============"
 sudo pip install python-openstackclient=="$OPENSTACKCLIENT_VERSION"
 
@@ -190,7 +191,7 @@ export SHADE_VERSION=1.30.0
 echo "==================adding shade $SHADE_VERSION================"
 sudo pip install shade=="$SHADE_VERSION"
 
-export TF_VERSION=0.11.10
+export TF_VERSION=0.11.11
 echo "================ Adding terraform-$TF_VERSION===================="
 export TF_FILE=terraform_"$TF_VERSION"_linux_amd64.zip
 
@@ -206,7 +207,7 @@ mv /tmp/terraform/terraform /usr/bin/terraform
 echo "Added terraform successfully"
 echo "-----------------------------------"
 
-export PK_VERSION=1.3.2
+export PK_VERSION=1.3.3
 echo "================ Adding packer $PK_VERSION ===================="
 export PK_FILE=packer_"$PK_VERSION"_linux_amd64.zip
 
