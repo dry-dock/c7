@@ -218,6 +218,10 @@ sudo unzip -d /usr/local $PK_FILE
 sudo ln -s /usr/local/packer /usr/local/bin/packer.io
 rm $PK_FILE
 
+export NANO_VERSION=2.7
+echo "============== $NANO_VERSION================"
+sudo yum install nano
+
 echo "Added packer successfully"
 echo "-----------------------------------"
 
