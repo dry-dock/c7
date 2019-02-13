@@ -118,7 +118,7 @@ curl -sSLO https://storage.googleapis.com/kubernetes-release/release/"$KUBECTL_V
 sudo chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 
-KOPS_VERSION=1.11.1
+KOPS_VERSION=1.11.0
 echo "Installing KOPS version: $KOPS_VERSION"
 curl -LO https://github.com/kubernetes/kops/releases/download/"$KOPS_VERSION"/kops-linux-amd64
 sudo chmod +x kops-linux-amd64
