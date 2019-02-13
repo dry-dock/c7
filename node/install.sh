@@ -9,7 +9,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 export NODEJS_VERSION=10.15*
-export NPM_VERSION=6.5.0
+export NPM_VERSION=6.7.0
 
 echo "================= Installing nodejs $NODEJS_VERSION ==================="
 curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -
@@ -18,7 +18,7 @@ rpm --import /etc/pki/rpm-gpg/NODESOURCE-GPG-SIGNING-KEY-EL
 sudo yum install nodejs-"$NODEJS_VERSION"
 npm install npm@"$NPM_VERSION" -g
 
-export YARN_VERSION=1.12*
+export YARN_VERSION=1.13*
 echo "================= Installing yarn $YARN_VERSION ==================="
 sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 #adding key required to install yarn
