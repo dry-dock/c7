@@ -16,7 +16,7 @@ curl -sSL https://get.rvm.io |  bash -s -- --version "$RVM_VERSION"
 source /usr/local/rvm/scripts/rvm
 rvm requirements
 
-export RUBY_VERSION=2.6.0
+export RUBY_VERSION=2.6.1
 echo "================= Installing default ruby ==================="
 rvm install "$RUBY_VERSION"
 
